@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = "https://taskly-6zh5gocp.b4a.run/api/tasks/"
+const API_URL = "https://taskly-6zh5gocp.b4a.run/api/users/"
 
 const register = async (userData) => {
     const res = await axios.post(API_URL + 'register', userData)
