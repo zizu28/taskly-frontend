@@ -50,7 +50,7 @@ const Profile = () => {
       navigate("/profile");
     }
     dispatch(actions.reset());
-  }, [user, isError, isLoading, isSuccess, message, dispatch, navigate]);
+  }, [user, dispatch, navigate]);
 
   const onSubmit = async (data) => {
     try {

@@ -29,7 +29,7 @@ const SignUp = () => {
       navigate("/signin");
     }
     dispatch(actions.reset());
-  }, [user, isError, isLoading, isSuccess, message, dispatch, navigate]);
+  }, [user, dispatch, navigate]);
 
   const {
     handleSubmit,

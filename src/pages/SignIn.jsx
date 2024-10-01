@@ -10,21 +10,12 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
-import { useSelector, useDispatch } from "react-redux";
-import { SelectUser, login, actions } from "../features/auth/UserSlice.js";
+import { useDispatch } from "react-redux";
+import { login } from "../features/auth/UserSlice.js";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const SignIn = () => {
-  // const { user, isError, isLoading, isSuccess, message } = useSelector(
-  //   SelectUser
-  // ) ?? {
-  //   user: "",
-  //   isError: false,
-  //   isLoading: false,
-  //   isSuccess: false,
-  //   message: "",
-  // };
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

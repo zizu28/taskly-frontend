@@ -20,7 +20,6 @@ function TaskForm({ type, task, defaultValues }) {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  //   const task = useSelector((state) => SelectTaskById(state, id));
   const {
     handleSubmit,
     register,

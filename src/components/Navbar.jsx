@@ -1,7 +1,7 @@
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import { useDispatch, useSelector } from "react-redux";
-import { SelectUser, logout, actions } from "../features/auth/UserSlice";
+import { useDispatch } from "react-redux";
+import { logout } from "../features/auth/UserSlice";
 import {
   Flex,
   Box,
@@ -15,11 +15,10 @@ import {
 } from "@chakra-ui/react";
 
 const Navbar = () => {
-  const user = useSelector(SelectUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const localStorageUser = localStorage.getItem("User");
+  const localStorageUser = JSON.parse(localStorage.getItem("User"));
   const handleSignOut = () => {
     try {
       dispatch(logout());
@@ -46,7 +45,7 @@ const Navbar = () => {
         </Box>
         <Spacer />
         <Box>
-          {user && localStorageUser ? (
+          {localStorageUser ? (
             <Menu>
               <MenuButton>
                 <Image
