@@ -15,8 +15,7 @@ import {
 } from "@chakra-ui/react";
 
 const Navbar = () => {
-  const { user, isError, isLoading, isSuccess, message } =
-    useSelector(SelectUser);
+  const user = useSelector(SelectUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
