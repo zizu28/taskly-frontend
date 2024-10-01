@@ -18,7 +18,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const localStorageUser = JSON.parse(localStorage.getItem("User"));
+  const localStorageUser = localStorage.getItem("User");
   const handleSignOut = () => {
     try {
       dispatch(logout());
