@@ -1,7 +1,6 @@
 import axios from 'axios';
-import { useSearchParams } from 'react-router-dom';
 
-const API_URL = "http://localhost:8000/api/tasks/"
+const API_URL = "https://taskly-6zh5gocp.b4a.run/api/tasks/"
 
 const createTask = async (taskData, token) => {
     const config = {
