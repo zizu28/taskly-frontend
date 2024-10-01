@@ -32,8 +32,7 @@ const Profile = () => {
   const [files, setFiles] = useState([]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user, isError, isLoading, isSuccess, message } =
-    useSelector(SelectUser);
+  const user = useSelector(SelectUser);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const {
@@ -45,10 +44,9 @@ const Profile = () => {
   } = useForm();
 
   useEffect(() => {
-    if (isError) {
-      toast.error(message);
-    }
-    if (isSuccess || user) {
+    if (!user) {
+      navigate("/signin");
+    } else {
       navigate("/profile");
     }
     dispatch(actions.reset());
@@ -81,28 +79,11 @@ const Profile = () => {
   };
 
   const handleFileUpload = async (files) => {
-    const IMAGE_API_URL = "http://localhost:5000/image/upload";
+    const IMAGE_API_URL = "https://taskly-6zh5gocp.b4a.run/image/upload";
 
     if (!files || !files[0]) {
       throw new Error("Image file not provided");
     }
-
-    // const user = JSON.parse(localStorage.getItem("User"));
-    // if (!user) {
-    //   throw new Error("User data not found in local storage.");
-    // }
-
-    // const token = user.token;
-    // if (!token) {
-    //   throw new Error("Token not provided");
-    // }
-
-    // const config = {
-    //   headers: {
-    //     Authorization: `Bearer ${token}`,
-    //     "Content-Type": "multipart/form-data",
-    //   },
-    // };
 
     try {
       const formData = new FormData();

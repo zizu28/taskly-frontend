@@ -18,16 +18,14 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-  const { user, isError, isLoading, isSuccess, message } =
-    useSelector(SelectUser);
+  const user = useSelector(SelectUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (isError) {
+    if (!user) {
       toast.error(message);
-    }
-    if (isSuccess || user) {
+    } else {
       navigate("/signin");
     }
     dispatch(actions.reset());
